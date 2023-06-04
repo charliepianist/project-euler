@@ -37,6 +37,13 @@ def factorize(x, primes):
         raise Exception(f'could not factor {orig_x} (left with {x}); largest prime was {primes[-1]}')
     return factorization
 
+def unfactorize(factorization):
+    """ Reconstruct x given its factorization """
+    prod = 1
+    for p in factorization:
+        prod *= p**factorization[p]
+    return prod
+
 def sum_divisors(factorization):
     """ Compute the sum of the divisors for a given factorization """
     prod = 1
